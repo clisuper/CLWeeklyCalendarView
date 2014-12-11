@@ -84,7 +84,7 @@ You need to fire below delegate function to apply your customisation
 -(NSDictionary *)CLCalendarBehaviorAttributes
 {
     return @{
-             CLCalendarWeekStartDay : @2, 
+             CLCalendarWeekStartDay : @2, 	//Start from Tuesday every week
              CLCalendarDayTitleTextColor : [UIColor yellowColor],
              CLCalendarSelectedDatePrintColor : [UIColor greenColor],
              };
