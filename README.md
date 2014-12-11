@@ -3,7 +3,7 @@
 CLWeeklyCalendarView is a scrollable weekly calendarView for iPhone. It is easy to use and customised.
 
 
-![alt tag](https://github.com/clisuper/CLFaceDetectionImagePicker/blob/master/screenshot.png)
+![alt tag](https://github.com/clisuper/CLWeeklyCalendarView/blob/master/screenshot.PNG)
 
 ## Installation
 * Drag the `CLWeeklyCalendarViewSource` folder into your project.
