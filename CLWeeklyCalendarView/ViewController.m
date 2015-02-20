@@ -47,6 +47,7 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 {
     return @{
              CLCalendarWeekStartDay : @2,                 //Start Day of the week, from 1-7 Mon-Sun -- default 1
+//             CLCalendarBackgroundImageColor: [UIColor redColor],
 //             CLCalendarDayTitleTextColor : [UIColor yellowColor],
 //             CLCalendarSelectedDatePrintColor : [UIColor greenColor],
              };
