@@ -99,6 +99,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
     self.backgroundImageView.frame = self.bounds;
     CGRect titleSubViewFrame = self.dayTitleSubViewContainer.frame;
     titleSubViewFrame.size.width = self.bounds.size.width;
