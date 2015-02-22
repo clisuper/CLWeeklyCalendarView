@@ -76,11 +76,39 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        [self addSubview:self.backgroundImageView];
-        self.arrDailyWeather = @{};
+        [self setup];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup
+{
+    // Initialization code
+    [self addSubview:self.backgroundImageView];
+    self.arrDailyWeather = @{};
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.backgroundImageView.frame = self.bounds;
+    CGRect titleSubViewFrame = self.dayTitleSubViewContainer.frame;
+    titleSubViewFrame.size.width = self.bounds.size.width;
+    self.dayTitleSubViewContainer.frame = titleSubViewFrame;
+
+    CGRect dailyFrame = self.dailySubViewContainer.frame;
+    dailyFrame.size.width = self.bounds.size.width;
+    self.dailySubViewContainer.frame = dailyFrame;
+    [self initDailyViews];
 }
 
 -(void)setDelegate:(id<CLWeeklyCalendarViewDelegate>)delegate
