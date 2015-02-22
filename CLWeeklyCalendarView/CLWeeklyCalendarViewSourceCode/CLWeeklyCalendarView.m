@@ -76,7 +76,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 {
     self = [super initWithFrame:frame];
     if (self) {
-      [self setup];
+        [self setup];
     }
     return self;
 }
@@ -85,7 +85,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 {
     self = [super initWithCoder:coder];
     if (self) {
-      [self setup];
+        [self setup];
     }
     return self;
 }
