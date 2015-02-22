@@ -97,6 +97,12 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
     self.arrDailyWeather = @{};
 }
 
+- (void)layoutSubviews
+{
+    self.backgroundImageView.frame = self.bounds;
+    [self initDailyViews];
+}
+
 -(void)setDelegate:(id<CLWeeklyCalendarViewDelegate>)delegate
 {
     _delegate = delegate;
