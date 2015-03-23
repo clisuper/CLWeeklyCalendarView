@@ -17,5 +17,14 @@
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic) BOOL blnSelected;
 
+@property (nonatomic, strong) UIColor *pastDayNumberTextColor;
+@property (nonatomic, strong) UIColor *futureDayNumberTextColor;
+@property (nonatomic, strong) UIColor *currentDayNumberTextColor;
+@property (nonatomic, strong) UIColor *selectedDayNumberTextColor;
+@property (nonatomic, strong) UIColor *selectedCurrentDayNumberTextColor;
+@property (nonatomic, strong) UIColor *currentDayNumberBackgroundColor;
+@property (nonatomic, strong) UIColor *selectedDayNumberBackgroundColor;
+@property (nonatomic, strong) UIColor *selectedCurrentDayNumberBackgroundColor;
+
 -(void)markSelected:(BOOL)blnSelected;
 @end

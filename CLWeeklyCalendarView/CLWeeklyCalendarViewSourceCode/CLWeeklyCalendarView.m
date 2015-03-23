@@ -36,6 +36,14 @@
 //Attribute Keys
 NSString *const CLCalendarWeekStartDay = @"CLCalendarWeekStartDay";
 NSString *const CLCalendarDayTitleTextColor = @"CLCalendarDayTitleTextColor";
+NSString *const CLCalendarPastDayNumberTextColor = @"CLCalendarPastDayNumberTextColor";
+NSString *const CLCalendarFutureDayNumberTextColor = @"CLCalendarFutureDayNumberTextColor";
+NSString *const CLCalendarCurrentDayNumberTextColor = @"CLCalendarCurrentDayNumberTextColor";
+NSString *const CLCalendarSelectedDayNumberTextColor = @"CLCalendarSelectedDayNumberTextColor";
+NSString *const CLCalendarSelectedCurrentDayNumberTextColor = @"CLCalendarSelectedCurrentDayNumberTextColor";
+NSString *const CLCalendarCurrentDayNumberBackgroundColor = @"CLCalendarCurrentDayNumberBackgroundColor";
+NSString *const CLCalendarSelectedDayNumberBackgroundColor = @"CLCalendarSelectedDayNumberBackgroundColor";
+NSString *const CLCalendarSelectedCurrentDayNumberBackgroundColor = @"CLCalendarSelectedCurrentDayNumberBackgroundColor";
 NSString *const CLCalendarSelectedDatePrintFormat = @"CLCalendarSelectedDatePrintFormat";
 NSString *const CLCalendarSelectedDatePrintColor = @"CLCalendarSelectedDatePrintColor";
 NSString *const CLCalendarSelectedDatePrintFontSize = @"CLCalendarSelectedDatePrintFontSize";
@@ -44,6 +52,14 @@ NSString *const CLCalendarBackgroundImageColor = @"CLCalendarBackgroundImageColo
 //Default Values
 static NSInteger const CLCalendarWeekStartDayDefault = 1;
 static NSInteger const CLCalendarDayTitleTextColorDefault = 0xC2E8FF;
+static NSInteger const CLCalendarPastDayNumberTextColorDefault = 0x7BD1FF;
+static NSInteger const CLCalendarFutureDayNumberTextColorDefault = 0xFFFFFF;
+static NSInteger const CLCalendarCurrentDayNumberTextColorDefault = 0xFFFFFF;
+static NSInteger const CLCalendarSelectedDayNumberTextColorDefault = 0x34A1FF;
+static NSInteger const CLCalendarSelectedCurrentDayNumberTextColorDefault = 0x0081c1;
+static NSInteger const CLCalendarCurrentDayNumberBackgroundColorDefault = 0x0081c1;
+static NSInteger const CLCalendarSelectedDayNumberBackgroundColorDefault = 0xffffff;
+static NSInteger const CLCalendarSelectedCurrentDayNumberBackgroundColorDefault = 0xffffff;
 static NSString* const CLCalendarSelectedDatePrintFormatDefault = @"EEE, d MMM yyyy";
 static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 
@@ -63,6 +79,14 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 
 @property (nonatomic, strong) NSNumber *weekStartConfig;
 @property (nonatomic, strong) UIColor *dayTitleTextColor;
+@property (nonatomic, strong) UIColor *pastDayNumberTextColor;
+@property (nonatomic, strong) UIColor *futureDayNumberTextColor;
+@property (nonatomic, strong) UIColor *currentDayNumberTextColor;
+@property (nonatomic, strong) UIColor *selectedDayNumberTextColor;
+@property (nonatomic, strong) UIColor *selectedCurrentDayNumberTextColor;
+@property (nonatomic, strong) UIColor *currentDayNumberBackgroundColor;
+@property (nonatomic, strong) UIColor *selectedDayNumberBackgroundColor;
+@property (nonatomic, strong) UIColor *selectedCurrentDayNumberBackgroundColor;
 @property (nonatomic, strong) NSString *selectedDatePrintFormat;
 @property (nonatomic, strong) UIColor *selectedDatePrintColor;
 @property (nonatomic) float selectedDatePrintFontSize;
@@ -100,7 +124,23 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
     self.weekStartConfig = attributes[CLCalendarWeekStartDay] ? attributes[CLCalendarWeekStartDay] : [NSNumber numberWithInt:CLCalendarWeekStartDayDefault];
     
     self.dayTitleTextColor = attributes[CLCalendarDayTitleTextColor]? attributes[CLCalendarDayTitleTextColor]:[UIColor colorWithHex:CLCalendarDayTitleTextColorDefault];
-    
+
+    self.pastDayNumberTextColor = attributes[CLCalendarPastDayNumberTextColor] ? attributes[CLCalendarPastDayNumberTextColor] : [UIColor colorWithHex:CLCalendarPastDayNumberTextColorDefault];
+
+    self.futureDayNumberTextColor = attributes[CLCalendarFutureDayNumberTextColor] ? attributes[CLCalendarFutureDayNumberTextColor] : [UIColor colorWithHex:CLCalendarFutureDayNumberTextColorDefault];
+
+    self.currentDayNumberTextColor = attributes[CLCalendarCurrentDayNumberTextColor] ? attributes[CLCalendarCurrentDayNumberTextColor] : [UIColor colorWithHex:CLCalendarCurrentDayNumberTextColorDefault];
+
+    self.selectedDayNumberTextColor = attributes[CLCalendarSelectedDayNumberTextColor] ? attributes[CLCalendarSelectedDayNumberTextColor] : [UIColor colorWithHex:CLCalendarSelectedDayNumberTextColorDefault];
+
+    self.selectedCurrentDayNumberTextColor = attributes[CLCalendarSelectedCurrentDayNumberTextColor] ? attributes[CLCalendarSelectedCurrentDayNumberTextColor] : [UIColor colorWithHex:CLCalendarSelectedCurrentDayNumberTextColorDefault];
+
+    self.currentDayNumberBackgroundColor = attributes[CLCalendarCurrentDayNumberBackgroundColor] ? attributes[CLCalendarCurrentDayNumberBackgroundColor] : [UIColor colorWithHex:CLCalendarCurrentDayNumberBackgroundColorDefault];
+
+    self.selectedDayNumberBackgroundColor = attributes[CLCalendarSelectedDayNumberBackgroundColor] ? attributes[CLCalendarSelectedDayNumberBackgroundColor] : [UIColor colorWithHex:CLCalendarSelectedDayNumberBackgroundColorDefault];
+
+    self.selectedCurrentDayNumberBackgroundColor = attributes[CLCalendarSelectedCurrentDayNumberBackgroundColor] ? attributes[CLCalendarSelectedCurrentDayNumberBackgroundColor] : [UIColor colorWithHex:CLCalendarSelectedCurrentDayNumberBackgroundColorDefault];
+
     self.selectedDatePrintFormat = attributes[CLCalendarSelectedDatePrintFormat]? attributes[CLCalendarSelectedDatePrintFormat] : CLCalendarSelectedDatePrintFormatDefault;
     
     self.selectedDatePrintColor = attributes[CLCalendarSelectedDatePrintColor]? attributes[CLCalendarSelectedDatePrintColor] : [UIColor whiteColor];
@@ -244,6 +284,19 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
 -(DailyCalendarView *)dailyViewForDate: (NSDate *)date inFrame: (CGRect)frame
 {
     DailyCalendarView *view = [[DailyCalendarView alloc] initWithFrame:frame];
+
+    // text colors
+    view.pastDayNumberTextColor = self.pastDayNumberTextColor;
+    view.futureDayNumberTextColor = self.futureDayNumberTextColor;
+    view.currentDayNumberTextColor = self.currentDayNumberTextColor;
+    view.selectedCurrentDayNumberTextColor = self.selectedCurrentDayNumberTextColor;
+
+    // background colors
+    view.selectedDayNumberTextColor = self.selectedDayNumberTextColor;
+    view.currentDayNumberBackgroundColor = self.currentDayNumberBackgroundColor;
+    view.selectedDayNumberBackgroundColor = self.selectedDayNumberBackgroundColor;
+    view.selectedCurrentDayNumberBackgroundColor = self.selectedCurrentDayNumberBackgroundColor;
+
     view.date = date;
     view.backgroundColor = [UIColor clearColor];
     view.delegate = self;
