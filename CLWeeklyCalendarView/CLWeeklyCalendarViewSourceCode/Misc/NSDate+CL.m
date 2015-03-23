@@ -23,8 +23,8 @@
 
 -(NSNumber *)getWeekDay
 {
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [gregorian components:NSWeekdayCalendarUnit fromDate:self];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *comps = [gregorian components:NSCalendarUnitWeekday fromDate:self];
     return [NSNumber numberWithInteger:([comps weekday] - 1)];
 }
 
@@ -62,7 +62,7 @@
 }
 
 - (NSDate*)midnightDate {
-    return [[NSCalendar currentCalendar] dateFromComponents:[[NSCalendar currentCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:self]];
+    return [[NSCalendar currentCalendar] dateFromComponents:[[NSCalendar currentCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:self]];
 }
 -(BOOL) isSameDateWith: (NSDate *)dt{
     return  ([[self midnightDate] isEqualToDate: [dt midnightDate]])?YES:NO;
